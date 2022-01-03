@@ -8,8 +8,11 @@ RUN apt update \
     && docker-php-ext-configure zip \
     && docker-php-ext-install zip
 
-# RUN useradd -ms /bin/bash maxime
+RUN useradd -ms /bin/bash maxime
 
 WORKDIR /var/www/project
 
-# USER root
+# install composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+USER maxime
