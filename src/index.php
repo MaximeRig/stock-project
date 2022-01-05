@@ -4,7 +4,7 @@ require '../vendor/autoload.php';
 include_once "research.php";
 
 use App\Page;
-use App\Client;
+use App\Client\Http;
 
 
 foreach($research as $search) {
@@ -12,7 +12,7 @@ foreach($research as $search) {
     try {
         
         $page = new Page($search['url'], $search['xpath'], $search['stringToSearch']);
-        $isAvalaible = Client::request($page);
+        $isAvalaible = Http::request($page);
 
         if ($isAvalaible) {
             // send an email to inform that the console is available

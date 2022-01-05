@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Client;
 
 use App\Page;
 

@@ -1,10 +1,10 @@
 <?php
-namespace App;
+namespace App\Client;
 
 use App\Page;
-use App\ClientInterface;
+use App\Client\ClientInterface;
 
-class Client implements ClientInterface {
+class Http implements ClientInterface {
 
     public static function request(Page $page) {
         $html = self::getHtml($page->getUrl());
