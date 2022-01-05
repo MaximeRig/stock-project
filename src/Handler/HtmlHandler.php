@@ -15,13 +15,13 @@ class HtmlHandler {
 
             $xpath = self::getDOM($html);
             
-            $entries = $xpath->query($page->getXpath());
+            $domNodeList = $xpath->query($page->getXpath());
             
             $textContent = "";
         
-            if (count($entries) > 0) {
-                foreach ($entries as $entry) {
-                    $textContent .= $entry->textContent;
+            if ($domNodeList !== false && $domNodeList->length > 0) {
+                foreach ($domNodeList as $node) {
+                    $textContent .= $node->textContent;
                 }
             }
         
