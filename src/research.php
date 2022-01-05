@@ -8,7 +8,7 @@ $research = [
     ],
     'amazonFr' => [
         'url' => 'https://www.amazon.fr/Playstation-Sony-PlayStation-5/dp/B08H93ZRK9',
-        'xpath' => '//*[@id="availability"]/span/text()',
+        'xpath' => '//*[@id="availability"]/span/txt()',
         'stringToSearch' => 'Actuellement indisponible.',
     ]
 ];

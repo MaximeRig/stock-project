@@ -9,11 +9,11 @@ use App\Handler\HtmlHandler;
 use App\Error\ClientError;
 
 
-foreach($research as $search) {
+foreach($research as $siteName => $search) {
     
     try {
         
-        $page = new Page($search['url'], $search['xpath'], $search['stringToSearch']);
+        $page = new Page($siteName, $search['url'], $search['xpath'], $search['stringToSearch']);
         $html = Http::request($page->getUrl());
         $isAvalaible = false;
 

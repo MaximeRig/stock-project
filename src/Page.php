@@ -4,14 +4,20 @@ namespace App;
 
 class Page {
 
+    private string $siteName;
     private string $url;
     private string $xpath;
     private string $stringToSearch;
 
-    public function __construct(string $url, string $xpath, string $stringToSearch) {
+    public function __construct(string $siteName, string $url, string $xpath, string $stringToSearch) {
+        $this->siteName = $siteName;
         $this->url = $url;
         $this->xpath = $xpath;
         $this->stringToSearch = $stringToSearch;
+    }
+
+    public function getSiteName(): string {
+        return $this->siteName;
     }
 
     public function getUrl(): string {
