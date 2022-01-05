@@ -13,11 +13,11 @@ class ClientError extends Error {
     }
 
 
-    private function getMessage() {
+    private function getMessage(): string {
         return parent::getDateTime() . " - " . $this->error->getMessage() . PHP_EOL;
     }
 
-    public function write() {
+    public function write(): void {
 
         $message = $this->getMessage();
 

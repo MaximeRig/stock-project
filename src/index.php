@@ -36,4 +36,3 @@ foreach($research as $search) {
     }
 
 }
-

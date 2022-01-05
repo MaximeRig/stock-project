@@ -6,7 +6,7 @@ use App\Page;
 
 class HtmlHandler {
 
-    public static function run(Page $page, string $html) {
+    public static function run(Page $page, string $html): bool {
         
         if (!empty($html)) {
 
@@ -32,7 +32,7 @@ class HtmlHandler {
         }
     }
 
-    private static function getDOM(string $html) {
+    private static function getDOM(string $html): \DOMXPath {
 
         $doc = new \DOMDocument();
         $doc->loadHTML($html);
