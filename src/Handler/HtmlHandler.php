@@ -18,8 +18,13 @@ class HtmlHandler {
             $domNodeList = $xpath->query($page->getXpath());
             
             $textContent = "";
+
+            if ($domNodeList === false) {
+                $errorMsg = 'fail to find element from xpath (' . $page->getSiteName() . ')';
+                throw new \ErrorException($errorMsg, 0, E_ERROR, "app_error.log");
+            }
         
-            if ($domNodeList !== false && $domNodeList->length > 0) {
+            if ($domNodeList->length > 0) {
                 foreach ($domNodeList as $node) {
                     $textContent .= $node->textContent;
                 }

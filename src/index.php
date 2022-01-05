@@ -18,7 +18,7 @@ foreach($research as $siteName => $search) {
         $isAvalaible = false;
 
         if (empty($html)) {
-            $errorMsg = 'fail to load url content (' . $page->getUrl() . ')';
+            $errorMsg = 'fail to load url content (' . $page->getSiteName() . ')';
             throw new \ErrorException($errorMsg, 0, E_ERROR, "app_error.log");
         }
         
