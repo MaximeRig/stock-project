@@ -6,6 +6,7 @@ include_once "research.php";
 use App\Page;
 use App\Client\Http;
 use App\Handler\HtmlHandler;
+use App\Error\ClientError;
 
 
 foreach($research as $search) {
@@ -16,13 +17,12 @@ foreach($research as $search) {
         $html = Http::request($page->getUrl());
         $isAvalaible = false;
 
-        // lancer le traitement du html
-        if (!empty($html)) {
-            
-            // lancer le traitement du html
-            $isAvalaible = HtmlHandler::run($page, $html);
-
+        if (empty($html)) {
+            $errorMsg = 'fail to load url content (' . $page->getUrl() . ')';
+            throw new \ErrorException($errorMsg, 0, E_ERROR, "app_error.log");
         }
+        
+        $isAvalaible = HtmlHandler::run($page, $html);
 
         if ($isAvalaible) {
             // send an email to inform that the console is available
@@ -31,18 +31,9 @@ foreach($research as $search) {
         var_dump($isAvalaible);
 
     } catch(ErrorException $error) {
-        writeErrorLog($error);
+        $clientError = new ClientError($error);
+        $clientError->write();
     }
 
 }
 
-function writeErrorLog(ErrorException $error) {
-
-    $dateTime = new \DateTime('now');
-    $date = $dateTime->format('Y-m-d H:i:s');
-    $trace = $error->getTrace()[0];
-
-    $message = $date . " - " . "file : " . $trace["file"] . " : " . $error->getMessage() . PHP_EOL;
-
-    file_put_contents("../logs/" . $error->getFile(), $message, FILE_APPEND);
-}

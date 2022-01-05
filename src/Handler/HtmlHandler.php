@@ -30,10 +30,6 @@ class HtmlHandler {
             return strpos($page->getStringToSearch(), $result) === false;
 
         }
-
-        $errorMsg = 'fail to load url content (' . $page->getUrl() . ')';
-
-        throw new \ErrorException($errorMsg, 0, E_ERROR, "app_error.log");
     }
 
     private static function getDOM(string $html) {
