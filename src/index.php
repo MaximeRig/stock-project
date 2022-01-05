@@ -5,6 +5,7 @@ include_once "research.php";
 
 use App\Page;
 use App\Client\Http;
+use App\Handler\HtmlHandler;
 
 
 foreach($research as $search) {
@@ -12,7 +13,16 @@ foreach($research as $search) {
     try {
         
         $page = new Page($search['url'], $search['xpath'], $search['stringToSearch']);
-        $isAvalaible = Http::request($page);
+        $html = Http::request($page->getUrl());
+        $isAvalaible = false;
+
+        // lancer le traitement du html
+        if (!empty($html)) {
+            
+            // lancer le traitement du html
+            $isAvalaible = HtmlHandler::run($page, $html);
+
+        }
 
         if ($isAvalaible) {
             // send an email to inform that the console is available
