@@ -2,22 +2,23 @@
 
 namespace App;
 
-class Page {
+class Product {
 
-    private string $siteName;
+    private string $id;
     private string $url;
     private string $xpath;
     private string $stringToSearch;
 
-    public function __construct(string $siteName, string $url, string $xpath, string $stringToSearch) {
-        $this->siteName = $siteName;
-        $this->url = $url;
-        $this->xpath = $xpath;
-        $this->stringToSearch = $stringToSearch;
+    public function __construct(array $product) {
+
+        $this->id = $product["id"];
+        $this->url = $product["url"];
+        $this->xpath = $product["xpath"];
+        $this->stringToSearch = $product["stringToSearch"];
     }
 
-    public function getSiteName(): string {
-        return $this->siteName;
+    public function getId(): string {
+        return $this->id;
     }
 
     public function getUrl(): string {

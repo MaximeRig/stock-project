@@ -2,11 +2,11 @@
 
 namespace App\Handler;
 
-use App\Page;
+use App\Product;
 
 class HtmlHandler {
 
-    public static function run(Page $page, string $html): bool {
+    public static function run(Product $product, string $html): bool {
         
         if (!empty($html)) {
 
@@ -15,12 +15,12 @@ class HtmlHandler {
 
             $xpath = self::getDOM($html);
             
-            $domNodeList = $xpath->query($page->getXpath());
+            $domNodeList = $xpath->query($product->getXpath());
             
             $textContent = "";
 
             if ($domNodeList === false) {
-                $errorMsg = 'fail to find element from xpath (' . $page->getSiteName() . ')';
+                $errorMsg = 'fail to find element from xpath (product id : ' . $product->getId() . ')';
                 throw new \ErrorException($errorMsg, 0, E_ERROR, "app_error.log");
             }
         
@@ -32,7 +32,7 @@ class HtmlHandler {
         
             $result = trim($textContent);
         
-            return strpos($page->getStringToSearch(), $result) === false;
+            return strpos($product->getStringToSearch(), $result) === false;
 
         }
     }
