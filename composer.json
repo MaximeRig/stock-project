@@ -9,8 +9,5 @@
             "name": "Maxime",
             "email": "maxime.rigaud.dev@gmail.com"
         }
-    ],
-    "require": {
-        "guzzlehttp/guzzle": "^7.4"
-    }
+    ]
 }
