@@ -2,8 +2,10 @@
 
 namespace App\Client;
 
+use App\Model\Product;
+
 interface ClientInterface {
 
-    public static function request(string $path);
+    public static function request(Product $product);
 
 }

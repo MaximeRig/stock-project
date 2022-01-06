@@ -6,9 +6,9 @@ use App\Error\Error;
 
 class ClientError extends Error {
 
-    private \ErrorException $error;
+    private \Exception $error;
 
-    public function __construct(\ErrorException $error) {
+    public function __construct(\Exception $error) {
         $this->error = $error;
     }
 

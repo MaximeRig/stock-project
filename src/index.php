@@ -14,19 +14,9 @@ foreach($products as $productToSearch) {
     try {
 
         $product = new Product($productToSearch);
-
-        if (empty($product->getUrl())) {
-            $errorMsg = 'url is empty (product id : ' . $product->getId() . ')';
-            throw new \ErrorException($errorMsg, 0, E_ERROR, "app_error.log");
-        }
         
-        $html = Http::request($product->getUrl());
+        $html = Http::request($product);
         $isAvailable = false;
-
-        if (empty($html)) {
-            $errorMsg = 'fail to load url content (product id : ' . $product->getId() . ')';
-            throw new \ErrorException($errorMsg, 0, E_ERROR, "app_error.log");
-        }
         
         $isAvailable = HtmlHandler::run($product, $html);
 
@@ -36,7 +26,7 @@ foreach($products as $productToSearch) {
 
         var_dump($isAvailable);
 
-    } catch(ErrorException $error) {
+    } catch(\Exception $error) {
         $clientError = new ClientError($error);
         $clientError->write();
     }
