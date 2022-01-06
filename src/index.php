@@ -1,9 +1,9 @@
 <?php
 
 require '../vendor/autoload.php';
-include_once "research.php";
+include_once "./Data/products.php";
 
-use App\Product;
+use App\Model\Product;
 use App\Client\Http;
 use App\Handler\HtmlHandler;
 use App\Error\ClientError;

@@ -2,7 +2,7 @@
 
 namespace App\Handler;
 
-use App\Product;
+use App\Model\Product;
 
 class HtmlHandler {
 
