@@ -7,7 +7,11 @@ use App\Model\Product;
 use App\Client\Http;
 use App\Handler\HtmlHandler;
 use App\Error\ClientError;
+use App\Utils\DotEnv;
 
+
+
+(new DotEnv(dirname(__DIR__) . '/.env'))->load();
 
 foreach($researches as $research) {
 
