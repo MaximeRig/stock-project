@@ -14,3 +14,8 @@ Le fonctionnement est simple : une tache CRON tourne à heures régulières et e
 - Docker
 - CRON
 - Mailer
+
+## Utilisation
+
+- Lancer le conteneur docker. Depuis `./docker`, lancer la commande `docker-compose up -d`
+- Créer le fichier `./.env.local` qui sera une copie de `./env` et remplir les valeurs des variables
