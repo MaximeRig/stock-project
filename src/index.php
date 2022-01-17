@@ -1,7 +1,7 @@
 <?php
 
 require '../vendor/autoload.php';
-include_once "./Data/products.php";
+include_once "./Data/researches.php";
 
 use App\Model\Product;
 use App\Client\Http;
@@ -9,11 +9,11 @@ use App\Handler\HtmlHandler;
 use App\Error\ClientError;
 
 
-foreach($products as $productToSearch) {
+foreach($researches as $research) {
 
     try {
 
-        $product = new Product($productToSearch);
+        $product = new Product($research);
         
         $html = Http::request($product);
         $isAvailable = false;
