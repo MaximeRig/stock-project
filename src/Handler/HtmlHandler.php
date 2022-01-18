@@ -32,7 +32,7 @@ class HtmlHandler {
         
             $result = trim($textContent);
         
-            return strpos($product->getStringToSearch(), $result) === false;
+            return stristr($result, $product->getStringToSearch()) === false;
 
         }
     }
