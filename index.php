@@ -14,7 +14,8 @@ use App\Utils\DotEnv;
 // lancer une instance de App (faire un singleton)
 // créer une méthode dans App pour lancer le foreach du dessous
 
-// $app = new App();
+$app = App\App::getInstance();
+var_dump($app->run());
 
 /*
 foreach($researches as $research) {
