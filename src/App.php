@@ -2,6 +2,10 @@
 
 namespace App;
 
+use App\Client\Http;
+use App\Model\Search;
+use App\Handler\HtmlHandler;
+
 class App {
 
     private static $instance;
@@ -15,18 +19,17 @@ class App {
         return self::$instance;
     }
 
-    public function run() {
-        /*
-        foreach($researches as $research) {
+    public function run($researches) {
 
+        foreach($researches as $research) {
             try {
 
-                $product = new Product($research);
+                $search = new Search($research);
                 
-                $html = Http::request($product);
+                $html = Http::request($search);
                 $isAvailable = false;
                 
-                $isAvailable = HtmlHandler::run($product, $html);
+                $isAvailable = HtmlHandler::run($search, $html);
 
                 if ($isAvailable) {
                     // send an email to inform that the console is available
@@ -39,6 +42,5 @@ class App {
                 $clientError->write();
             }
         }
-        */
     }
 }

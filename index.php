@@ -8,4 +8,4 @@ use App\Utils\DotEnv;
 (new DotEnv(__DIR__ . '/.env.local'))->load();
 
 $app = App\App::getInstance();
-$app->run();
+$app->run($researches);

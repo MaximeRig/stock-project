@@ -2,11 +2,11 @@
 
 namespace App\Handler;
 
-use App\Model\Product;
+use App\Model\Search;
 
 class HtmlHandler {
 
-    public static function run(Product $product, string $html): bool {
+    public static function run(Search $search, string $html): bool {
         
         if (!empty($html)) {
 
@@ -15,12 +15,12 @@ class HtmlHandler {
 
             $xpath = self::getDOM($html);
             
-            $domNodeList = $xpath->query($product->getXpath());
+            $domNodeList = $xpath->query($search->getXpath());
             
             $textContent = "";
 
             if ($domNodeList === false) {
-                $errorMsg = 'fail to find element from xpath (product id : ' . $product->getId() . ')';
+                $errorMsg = 'fail to find element from xpath (search id : ' . $search->getId() . ')';
                 throw new \ErrorException($errorMsg, 0, E_ERROR, "app_error.log");
             }
         
@@ -32,7 +32,7 @@ class HtmlHandler {
         
             $result = trim($textContent);
         
-            return stristr($result, $product->getStringToSearch()) === false;
+            return stristr($result, $search->getStringToSearch()) === false;
 
         }
     }

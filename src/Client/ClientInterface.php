@@ -2,10 +2,10 @@
 
 namespace App\Client;
 
-use App\Model\Product;
+use App\Model\Search;
 
 interface ClientInterface {
 
-    public static function request(Product $product);
+    public static function request(Search $search);
 
 }

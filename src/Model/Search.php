@@ -2,19 +2,19 @@
 
 namespace App\Model;
 
-class Product {
+class Search {
 
     private string $id;
     private string $url;
     private string $xpath;
     private string $stringToSearch;
 
-    public function __construct(array $product) {
+    public function __construct(array $search) {
 
-        $this->id = $product["id"];
-        $this->url = $product["url"];
-        $this->xpath = $product["xpath"];
-        $this->stringToSearch = $product["stringToSearch"];
+        $this->id = $search["id"];
+        $this->url = $search["url"];
+        $this->xpath = $search["xpath"];
+        $this->stringToSearch = $search["stringToSearch"];
     }
 
     public function getId(): string {
