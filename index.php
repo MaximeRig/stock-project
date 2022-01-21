@@ -1,18 +1,22 @@
 <?php
 
-require '../vendor/autoload.php';
-include_once "./Data/researches.php";
+require './vendor/autoload.php';
+include_once "./src/Data/researches.php";
 
-use App\Model\Product;
-use App\Client\Http;
-use App\Handler\HtmlHandler;
-use App\Error\ClientError;
+// use App\Model\Product;
+// use App\Client\Http;
+// use App\Handler\HtmlHandler;
+// use App\Error\ClientError;
 use App\Utils\DotEnv;
 
+(new DotEnv(__DIR__ . '/.env.local'))->load();
 
+// lancer une instance de App (faire un singleton)
+// créer une méthode dans App pour lancer le foreach du dessous
 
-(new DotEnv(dirname(__DIR__) . '/.env'))->load();
+// $app = new App();
 
+/*
 foreach($researches as $research) {
 
     try {
@@ -35,3 +39,4 @@ foreach($researches as $research) {
         $clientError->write();
     }
 }
+*/
