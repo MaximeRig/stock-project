@@ -4,6 +4,7 @@ namespace App;
 
 use App\Client\Http;
 use App\Model\Search;
+use App\Database\Connector;
 use App\Handler\HtmlHandler;
 
 class App {
@@ -19,7 +20,11 @@ class App {
         return self::$instance;
     }
 
-    public function run($researches) {
+    public function run() {
+
+        $connector = Connector::createConnection($_ENV['DATA_SOURCE']);
+        $connector->getConnection();
+        $researches = $connector->getData();
 
         foreach($researches as $research) {
             try {

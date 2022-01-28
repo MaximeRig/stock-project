@@ -1,6 +1,6 @@
 <?php
 
-$researches = [
+return $researches = [
     [
         "id" => 0,
         "name" => "Playstation 5 Standard",
