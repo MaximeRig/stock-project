@@ -18,4 +18,4 @@ Le fonctionnement est simple : une tache CRON tourne à heures régulières et e
 ## Utilisation
 
 - Lancer le conteneur docker. Depuis `./docker`, lancer la commande `docker-compose up -d`
-- Créer le fichier `./.env.local` qui sera une copie de `./env` et remplir les valeurs des variables
+- Créer le fichier `./.env.local` qui sera une copie de `./env` et remplir les valeurs des variables. Pour le moment, seul les données sont formes de fichiers sont pris en charge. "Connector" et "DatabaseInterface" vous me permettre d'ajouter rapidement une seconde manière de récupérer les recherches à faire (depuis une database par exemple)
